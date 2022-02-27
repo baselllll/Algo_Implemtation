@@ -1,0 +1,37 @@
+<?php
+
+
+class Solution {
+
+/**
+* @param String $s
+* @return Integer
+*/
+function romanToInt($s) {
+    $reserved_arr = [
+        1=>"I", 
+        5=>"V", 
+        10=>"X", 
+        50=>"L", 
+        100=>"C",
+        500=>"D", 
+        1000=>"M"
+    ];
+$array = array_map(function($item) use($reserved_arr){
+    $val_data =  array_search($item,$reserved_arr);
+    return $val_data;
+}, str_split($s));
+foreach ($array as $key=>$item) {
+   if($array[$key]<$array[$key+1]){
+       $array[$key] = -$array[$key];
+   }
+}
+ $sum = array_sum($array);
+ return $sum;
+}
+}
+$data = new Solution();
+$res = $data->romanToInt("MCMXCIV");
+echo $res;
+
+?>
