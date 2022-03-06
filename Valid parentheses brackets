@@ -1,0 +1,30 @@
+<?php
+
+
+class Solution {
+    function isValid($s){
+        $stack = new SplStack();
+        for ($i=0; $i < strlen($s); $i++) { 
+            switch($s[$i]){
+                case '(':
+                    $stack->push(')');
+                    break;
+                case '{':
+                $stack->push('}');
+                break;
+                case '[':
+                    $stack->push(']');
+                    break;
+                case $stack->isEmpty() || $stack->pop() != $s[$i]:
+                    return false;
+                  
+            }
+        }
+        return $stack->isEmpty();
+    }
+}
+$data = new Solution();
+$res = $data->isValid(")()[]{}");
+echo $res;
+
+?>
