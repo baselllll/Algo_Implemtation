@@ -1,0 +1,18 @@
+<?php
+class Solution {
+
+    /**
+     * @param Integer $numRows
+     * @return Integer[][]
+     */
+
+    function removeElement(&$nums,$val) {
+        $nums = array_diff($nums,array($val));
+        return count($nums);
+    }
+}
+$data = new Solution();
+$nums=[0,0,1,1,1,2,2,3,3,4];
+$res = $data->removeElement($nums,2);
+echo $res;
+?>
