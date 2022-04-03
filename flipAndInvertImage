@@ -1,0 +1,22 @@
+class Solution {
+
+    /**
+     * @param Integer[][] $image
+     * @return Integer[][]
+     */
+    function flipAndInvertImage($image) {
+       $arr=  array_map(function($item){
+            $arr_reverve =  array_reverse($item);
+            return array_map(function($item_reverse){
+                if($item_reverse==0){
+                    $item_reverse=1;
+                }else{
+                    $item_reverse=0;
+                }
+                return $item_reverse;
+            },$arr_reverve);
+            return $arr_reverve;
+        },$image);
+        return $arr;
+    }
+}
