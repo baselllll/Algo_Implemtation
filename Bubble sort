@@ -1,0 +1,29 @@
+<?php
+
+//bubble sort 
+class BubbleSort{
+    public function bubbleFun(array $nums)
+    {
+        $swaped=true;
+        do {
+            for ($key=0; $key < count($nums)-1 ; $key++) { 
+                if($nums[$key] > $nums[$key+1]){
+                    $third = $nums[$key];  
+                    $nums[$key]=$nums[$key+1];
+                    $nums[$key+1] = $third;  
+                    $swaped=true;
+                    $key = $key+1;
+                    break;
+                }
+                $swaped=false;
+            }
+                
+        } while ($swaped);
+        echo "<pre>";
+        echo print_r($nums);
+        echo "<pre/>";
+    }
+}
+$sorted = new BubbleSort();
+$sorted->bubbleFun([3,44,38,5,47,15,36,26,27,2,46,4,19,50,48]);
+?>
