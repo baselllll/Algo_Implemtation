@@ -1,5 +1,5 @@
 
-// implemntion the stack with Array
+// implemntion the stack with Lisked List
 
 /*
 css
