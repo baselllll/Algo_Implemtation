@@ -79,6 +79,28 @@ class Linkedlist {
         this.length--;
         return this;
     }
+    reverse() {
+        if (!this.head.next) {
+            return this.head;
+        }
+        let newHead = {
+            value: this.head.value,
+            next: null
+        }
+        let current = this.head.next
+        while (current) {
+            newHead = {
+                value: current.value,
+                next: newHead
+            }
+            current = current.next
+        }
+        this.head = newHead
+
+    }
+
+
+
     traversalIndex(index) {
         let currentNode = this.head;
         let counter = 0;
@@ -95,6 +117,6 @@ const list = new Linkedlist(10)
 list.append(5)
 list.prepend(16)
 list.insert(2, 99)
-list.insert(3, 102)
-list.remove(2)
-console.log(list.printList());
+// console.log(list.printList())
+list.reverse()
+console.log(list.printList())
